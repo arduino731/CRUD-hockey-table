@@ -3,18 +3,19 @@ var passportLocalMongoose = require("passport-local-mongoose");
 
 var UserSchema = new mongoose.Schema({
 
-    username: String,
-    password: String,
-    Localpicture: String,
+    name: String,
+    jersey: Number,
+    position: String,
+    active: Boolean
 
-    facebook: {
-        id: String,
-        token: String,
-        email: String,
-        name: String,
-        picture: String,
-        link: String
-    }
+    // facebook: {
+    //     id: String,
+    //     token: String,
+    //     email: String,
+    //     name: String,
+    //     picture: String,
+    //     link: String
+    // }
 });
 
 UserSchema.plugin(passportLocalMongoose)

@@ -20,8 +20,8 @@ var usersRouter = require('./routes/users');
 var configDB = require('./config/database.js');
 // mongoose.connect(configDB.localhost); // connect to your local database
 // mongoose.connect(configDB.url);          // connect to mlab server db
-console.log('The value of PORT is:', process.env.URL);    // look at the note.txt
-// mongoose.connect(process.env.URL);
+console.log('The value of PORT is:', process.env.MONGOLAB_URI);    // look at the note.txt
+mongoose.connect(process.env.MONGOLAB_URI);
 
 
 // view engine setup

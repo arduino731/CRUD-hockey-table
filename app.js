@@ -11,7 +11,7 @@ var LocalStrategy = require("passport-local");
 var methodOverride = require("method-override");
 var User = require('./models/user');
 var app = express();
-var dotenv = require('dotenv').load();
+var dotenv = require('dotenv').config();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -20,7 +20,7 @@ var usersRouter = require('./routes/users');
 var configDB = require('./config/database.js');
 // mongoose.connect(configDB.localhost); // connect to your local database
 // mongoose.connect(configDB.url);          // connect to mlab server db
-console.log('The value of PORT is:', process.env.MONGOLAB_URI);    // look at the note.txt
+// console.log('The value of PORT is:', process.env.MONGOLAB_URI);
 mongoose.connect(process.env.MONGOLAB_URI);
 
 

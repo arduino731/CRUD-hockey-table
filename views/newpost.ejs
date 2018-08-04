@@ -1,0 +1,40 @@
+<% include ./partials/header %>
+
+<h1>Create | Edit </h1>
+<form action="/newpost" method="POST" accept-charset="utf-8">
+    <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
+        <legend class="ph0 mh0 fw6 clip">Sign Up</legend>
+        <div class="mt3">
+            <label class="db fw4 lh-copy f6" for="name">Name</label>
+            <input class="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="name"  placeholder="placeholder">
+        </div>
+        <div class="mt3">
+            <label class="db fw4 lh-copy f6" for="jersey">Jersey Number</label>
+            <input class="b pa2 input-reset ba bg-transparent w-100 measure" type="number" name="jersey">
+        </div>
+        <div class="mt3">
+            <label class="db fw4 lh-copy f6" for="jersey">Position</label>
+            <input class="b pa2 input-reset ba bg-transparent w-100 measure" type="number" name="jersey">
+            <!-- <option value="rw">Right Wing</option> -->
+            <!-- <option value="lw">Left Wing</option> -->
+            <!-- <option value="center">Center</option> -->
+            <!-- <option value="rd">Right Defense</option> -->
+            <!-- <option value="ld">Left Defense</option> -->
+            <!-- <option value="goalie">Goaltender</option> -->
+        </div>
+        <div class="mt3">
+            <label class="db fw4 lh-copy f6" for="active">Active?</label>
+            <div class="b pa2 input-reset ba bg-transparent w-100 measure tc">
+                <input class="" type="radio" name="active">True    
+                <input class="" type="radio" name="active">False
+            </div>
+        </div>
+    </fieldset>
+    <div class="mt3">
+        <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="submit" value="submit">
+    </div>
+</form>
+
+
+
+<a href="/">Go Back</a>

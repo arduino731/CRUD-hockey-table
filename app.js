@@ -14,15 +14,13 @@ var app = express();
 var dotenv = require('dotenv').config();
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
 // configuration ===============================================================
 var configDB = require('./config/database.js');
 // mongoose.connect(configDB.localhost); // connect to your local database
 // mongoose.connect(configDB.url);          // connect to mlab server db
 // console.log('The value of PORT is:', process.env.MONGOLAB_URI);
-mongoose.connect(process.env.MONGOLAB_URI);
-
+mongoose.connect(process.env.MONGOLAB_URI,{ useNewUrlParser: true });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -54,7 +52,6 @@ app.use(function(req, res, next) {
 
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 
 // error handler

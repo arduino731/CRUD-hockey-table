@@ -1,65 +1,45 @@
 var express = require("express");
 var router = express.Router();
-var passport = require("passport");
 var User = require("../models/user");
 
-require('../config/passport')(passport);
-//root route
-
+//INDEX - show all user
 router.get("/", function(req, res) {
-    var title = "brian3";
-    res.render("index", { title: title });
-});
-// show register form
-router.get("/register", function(req, res) {
-    res.render("register");
-});
-//handle sign up logic
-router.post("/register", function(req, res) {
-    var Localpicture = "http://www.fivepointstance.com/wp-content/uploads/2013/11/Be-Weird.jpg";
-    var newUser = new User({ username: req.body.username, Localpicture: Localpicture });
-    User.register(newUser, req.body.password, function(err, user) {
-        if (err) {
-            console.log(err);
-            return res.render("register");
-        }
-        passport.authenticate("local")(req, res, function() {
-            res.redirect("/");
-        });
-    });
+    // User.find({}, function(err, allUser){
+    //     if(err){
+    //         console.log(err);
+    //     } else {
+    //         res.render('/index', {users: allUser});
+    //     }
+    // })
+    res.render('index');
 });
 
-//show login form
-router.get("/login", function(req, res) {
-    res.render("login");
+router.get("/newpost", function(req, res) {
+    res.render("newpost");
+
+    // var newUser = new User({ name: req.body.name });
+    // User.register(newUser, function(err, user) {
+    //     if (err) {
+    //         console.log(err);
+    //     } 
+    //     else {
+    //         res.render("newpost");
+    //     }
+    // });
 });
 
-//handling login logic
-router.post("/login", passport.authenticate("local", {
-    successRedirect: "/login",
-    failureRedirect: "/login"
-}), function(req, res) {});
+// router.post("/newpost", function(req, res){
+//     User.create(req.body.id, function(err, newpost){
+//         if(err){
+//             console.log(err)
+//             res.redirect('/');
+//         } else {
+//             newpost.name = req.body.name;
+//             newpost.save();
+//             console.log(newpost); 
+//             res.redirect('/');
+//         }
+//     })    
+// })
 
-// route for facebook authentication and login
-router.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }));
-
-// handle the callback after facebook has authenticated the user
-router.get('/auth/facebook/callback',
-    passport.authenticate('facebook', {
-        successRedirect: '/',
-        failureRedirect: '/login'
-    }));
-// logout route
-router.get("/logout", function(req, res) {
-    req.logout();
-    res.redirect("/");
-});
-
-//middleware
-function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next();
-    }
-    res.redirect("/login");
-}
 module.exports = router;

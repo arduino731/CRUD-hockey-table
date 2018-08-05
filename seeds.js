@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 // var Dumbdata = require("./models/dumbdata");
 
-// mongoose.connect("mongodb://CRUD-hockey-table:hockey5@ds113122.mlab.com:13122/crud-hockey-table"); 
+// mongoose.connect("mongodb://<dbuser>:<password>@ds113122.mlab.com:13122/crud-hockey-table"); 
 // mongoose.connect("mongodb://localhost/CRUD-hockey-table"); 
 
 var data = [

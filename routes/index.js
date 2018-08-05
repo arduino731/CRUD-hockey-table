@@ -58,9 +58,10 @@ router.get('/:id/edit', function (req, res){
 });
 
 router.put('/:id', function(req, res){
-    var newData = {name:req.body.name, jersey:req.body.jersey, position: req.body.position}
+    var newData = { name: req.body.name, jersey: req.body.jersey, position: req.body.position};
+    // var newData = { name: req.body.name, jersey: req.body.jersey, position: req.body.position, active: req.body.active};
     console.log('newData', newData);
-    User.findByIdAndUpdate(req.params.id, {$set:newData} , function(err, updatedUser){
+    User.findByIdAndUpdate(req.params.id, {$set: newData} , function(err, updatedUser){
         if(err){
             res.redirect("back");
             return handleError(err);

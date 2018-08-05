@@ -3,20 +3,6 @@
     <div class="mainTitle">
         <h1 class="text-center">Welcome CRUD hockey team</h1>
     </div>
-
-
-    <!-- <% users.forEach(function(user){%>
-
-        <% if(user.length === 0){ %>
-            <p style="color:white;">no posts yet!</p>
-        <% } else { %>
-
-            <p>Name: <% user.name %></p>
-
-        <% } %>
-    <% }) %> -->
-
-
     <div class="container">
         <div class="pa4">
             <h1 class="h1TeamMangager">Hockey Team Manager</h1>
@@ -29,52 +15,47 @@
                     <th class="fw6 tl pa3 bg-white">Name</th>
                     <th class="fw6 tl pa3 bg-white">Jersey Number</th>
                     <th class="fw6 tl pa3 bg-white">Position</th>
-                    <th class="fw6 tl pa3 bg-white">Active</th>
+                    <th class="fw6 tl pa3 bg-white">Active?</th>
                     <th class="fw6 tl pa3 bg-white">Actions</th>
                 </tr>
                 </thead>
                 <tbody class="lh-copy">
-                <tr class="stripe-dark">
-                    <td class="pa3">Hassan Johnson</td>
-                    <td class="pa3">@hassan</td>
-                    <td class="pa3">hassan@companywithalongdomain.co</td>
-                    <td class="pa3">14419232532474</td>
-                    <td class="pa3"><a href='#'>Edit</a> <a href='#'>Delete</a></td>
-                </tr>
-                <tr class="stripe-dark">
-                    <td class="pa3">Taral Hicks</td>
-                    <td class="pa3">@hicks</td>
-                    <td class="pa3">taral@companywithalongdomain.co</td>
-                    <td class="pa3">72326219423551</td>
-                    <td class="pa3"><a href='#'>Edit</a> <a href='#'>Delete</a></td>
+                    <% users.forEach(function (user){ %>
+                        <tr class="stripe-dark">
+                            <td class="pa3"><%= user.name %></td>
+                            <td class="pa3"><%= user.jersey %></td>
+                            <td class="pa3"><%= user.position %></td>
+                            <td class="pa3"><%= user.active %></td>
+                            <td class="pa3">
+                                <a href='<%= user._id %>/edit'>Edit</a> 
+                                <form action="/<%= user._id %>?_method=DELETE" method="POST">
+                                    <input type='submit' value="Delete"> 
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                    <tr class="stripe-dark">
+                        <td class="pa3">Taral Hicks</td>
+                        <td class="pa3">@hicks</td>
+                        <td class="pa3">taral@companywithalongdomain.co</td>
+                        <td class="pa3">72326219423551</td>
+                        <td class="pa3"><a href='#'>Edit</a> <a href='#'>Delete</a></td>
 
-                </tr>
-                <tr class="stripe-dark">
-                    <td class="pa3">Tyrin Turner</td>
-                    <td class="pa3">@tt</td>
-                    <td class="pa3">ty@companywithalongdomain.co</td>
-                    <td class="pa3">92325170324444</td>
-                    <td class="pa3"><a href='#'>Edit</a> <a href='#'>Delete</a></td>
+                    </tr>
+                    <tr class="stripe-dark">
+                        <td class="pa3">Tyrin Turner</td>
+                        <td class="pa3">@tt</td>
+                        <td class="pa3">ty@companywithalongdomain.co</td>
+                        <td class="pa3">92325170324444</td>
+                        <td class="pa3"><a href='#'>Edit</a> <a href='#'>Delete</a></td>
 
-                </tr>
-                <tr class="stripe-dark">
-                    <td class="pa3">Oliver Grant</td>
-                    <td class="pa3">@oli</td>
-                    <td class="pa3">oliverg@companywithalongdomain.co</td>
-                    <td class="pa3">71165170352909</td>
-                    <td class="pa3"><a href='#'>Edit</a> <a href='#'>Delete</a></td>
-
-                </tr>
-                <tr class="stripe-dark">
-                    <td class="pa3">Dean Blanc</td>
-                    <td class="pa3">@deanblanc</td>
-                    <td class="pa3">dean@companywithalongdomain.co</td>
-                    <td class="pa3">71865178111909</td>
-                    <td class="pa3"><a href='#'>Edit</a> <a href='#'>Delete</a></td>
-
-                </tr>
+                    </tr>
                 </tbody>
             </table>
             </div>
         </div>
     </div>
+
+
+
+<% include ./partials/footer %>

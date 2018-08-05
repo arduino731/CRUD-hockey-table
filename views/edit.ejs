@@ -1,0 +1,48 @@
+<% include ./partials/header %>
+
+
+<h1>EDIT</h1>
+
+<h1>Edit for <%= user.name %> </h1>
+<form action="/<%= user._id %>/?_method=PUT" method="POST">
+    <fieldset class="ba b--transparent ph0 mh0">
+        <div class="mt3">
+            <label class="db fw4 lh-copy f6" for="name">Name</label>
+            <input class="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="user[name]"  value="<%= user.name %>" required>
+        </div>
+        <div class="mt3">
+            <label class="db fw4 lh-copy f6" for="jersey">Jersey Number</label>
+            <input class="b pa2 input-reset ba bg-transparent w-100 measure" type="number" name="user[jersey]" value="<%= user.jersey %>" required>
+        </div>
+        <div class="mt3">
+            <label class="db fw4 lh-copy f6" for="jersey">Position</label>
+            <input class="b pa2 input-reset ba bg-transparent w-100 measure" type="text" name="user[position]" value="<%= user.position %>" required>
+            <!-- <select class="" name="user[position]" title="position" value="<%= user.position %>">  -->
+                <!-- <option value="rw">Right Wing</option> -->
+                <!-- <option value="lw">Left Wing</option> -->
+                <!-- <option value="center">Center</option> -->
+                <!-- <option value="rd">Right Defense</option> -->
+                <!-- <option value="ld">Left Defense</option> -->
+                <!-- <option value="goalie">Goaltender</option> -->
+            <!-- </select> -->
+        </div>
+        <div class="mt3">
+            <label class="db fw4 lh-copy f6" for="active">Active?</label>
+            <div class="b pa2 input-reset ba bg-transparent w-100 measure tc">
+                <% if( user.active === 'true' ){ %>
+                    <input class="" type="radio" name="user[active]" value="<%= user.active %>" checked>True
+                    <input class="" type="radio" name="user[active]" value="<%= user.active %>" >False    
+                <% } else { %>
+                    <input class="" type="radio" name="user[active]" value="<%= user.active %>" checked>False
+                    <input class="" type="radio" name="user[active]" value="<%= user.active %>" >True
+                <% } %>
+            </div>
+        </div>
+    </fieldset>
+    <div class="mt3">
+        <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="submit" value="submit">
+    </div>
+</form>
+
+
+<% include ./partials/footer %>

@@ -1,32 +1,33 @@
 <% include ./partials/header %>
 
-<h1>Create | Edit </h1>
+<h1>Create New A Player</h1>
 <form action="/newpost" method="POST" accept-charset="utf-8">
-    <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
-        <legend class="ph0 mh0 fw6 clip">Sign Up</legend>
+    <fieldset class="ba b--transparent ph0 mh0">
         <div class="mt3">
             <label class="db fw4 lh-copy f6" for="name">Name</label>
-            <input class="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="name"  placeholder="placeholder">
+            <input class="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="name"  placeholder="Name Player" required>
         </div>
         <div class="mt3">
             <label class="db fw4 lh-copy f6" for="jersey">Jersey Number</label>
-            <input class="b pa2 input-reset ba bg-transparent w-100 measure" type="number" name="jersey">
+            <input class="b pa2 input-reset ba bg-transparent w-100 measure" min="1" max= "99" type="number" name="jersey" required>
         </div>
         <div class="mt3">
             <label class="db fw4 lh-copy f6" for="jersey">Position</label>
-            <input class="b pa2 input-reset ba bg-transparent w-100 measure" type="number" name="jersey">
+            <input class="b pa2 input-reset ba bg-transparent w-100 measure" type="text" name="position" required>
+            <!-- <select class="" name="user[position]" title="position" value="<%= user.position %>">  -->
             <!-- <option value="rw">Right Wing</option> -->
             <!-- <option value="lw">Left Wing</option> -->
             <!-- <option value="center">Center</option> -->
             <!-- <option value="rd">Right Defense</option> -->
             <!-- <option value="ld">Left Defense</option> -->
             <!-- <option value="goalie">Goaltender</option> -->
+            <!-- </select> -->
         </div>
         <div class="mt3">
             <label class="db fw4 lh-copy f6" for="active">Active?</label>
-            <div class="b pa2 input-reset ba bg-transparent w-100 measure tc">
-                <input class="" type="radio" name="active">True    
-                <input class="" type="radio" name="active">False
+            <div class="b pa2 input-reset ba bg-transparent w-100 measure tc" required>
+                <input class="" type="radio" name="active" value="0"> False
+                <input class="" type="radio" name="active" value="1"> True    
             </div>
         </div>
     </fieldset>
@@ -36,5 +37,3 @@
 </form>
 
 
-
-<a href="/">Go Back</a>

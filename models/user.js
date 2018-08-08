@@ -5,8 +5,8 @@ var UserSchema = new mongoose.Schema({
     name: String,
     jersey: {type: Number, unique: true},
     position: String,
-    active: Boolean,
-    date: { type: Date, default: Date.now}  
+    active: {type:Boolean, default: false},
+    date: {type: Date, default: Date.now}  
 
 });
 

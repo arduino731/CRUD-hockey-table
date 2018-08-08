@@ -1,5 +1,6 @@
 var express = require("express");
 var User = require("../models/user");
+// var User = require("../models/dumbdata");
 var router = express.Router();
 
 router.get("/", function(req, res) {

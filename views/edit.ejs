@@ -28,13 +28,15 @@
             <label class="db fw4 lh-copy f6" for="active">Active?</label>
             <div class="b pa2 input-reset ba bg-transparent w-100 measure tc">
                 <!-- plan to fix it  -->
-                <% if( user.active === 'true' ){ %>
-                    <input class="" type="radio" name="user[active]" value="<%= user.active %>" checked>True
-                    <input class="" type="radio" name="user[active]" value="<%= user.active %>" >False    
+                <% if( user.active === true ){ %>
+                    <input class="radio" type="radio" id="active" name="active" value="<%= user.active  %>" checked>True
+                    <input class="radio" type="radio" id="active" name="active" value="<%= user.active  %>" >False    
                 <% } else { %>
-                    <input class="" type="radio" name="user[active]" value="<%= user.active %>" checked>False
-                    <input class="" type="radio" name="user[active]" value="<%= user.active %>" >True
+                    <input class="radio" type="radio" name="active" value="<%= user.active %>" >False
+                    <input class="radio" type="radio" name="active" value="<%= user.active %>" >True
                 <% } %>
+                
+                
             </div>
         </div>
     </fieldset>

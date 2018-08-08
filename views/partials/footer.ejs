@@ -1,4 +1,49 @@
     
     <!-- script can put here for better UI  -->
+    <script>
+        var radio = document.querySelectorAll(".radio");
+        // console.log("here1", radio[1].checked);
+        // console.log("here2", radio);
+        var found;
+
+        for(var i = 0; radio.length > i; i++){
+            if(!radio[i].checked){
+                console.log('checked false');
+                found = true;
+                radio[i].checked = found;
+                console.log("here1", radio[1].checked);
+
+                
+
+            } else {
+                console.log('checked true');
+                found = true;
+                radio[i].checked = found;
+            }
+            
+            radio[i].addEventListener('input', function(){
+                // if(radio[i].value)
+                console.log(radio);
+                console.log('changed radio');
+
+            })
+
+
+        }
+
+//         for(var i=0; radio.length > i;i++){
+//             if(radio[i].checked === true ){
+//                 console.log("here true active")
+//                 radio[i].checked = true;
+// }
+//             // }else{
+//             //     console.log("here false active")
+//             //     radio[i].checked = true;
+//             // }
+//             radio[i].checked ? true: false;
+//             console.log(radio[i].checked);
+//         }
+
+    </script>
     </body>
 </html>
